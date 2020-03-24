@@ -1,0 +1,15 @@
+.btn {
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  transform: scale(1);
+  transition: 0.2s;
+  cursor: pointer;
+  box-shadow: var(--drop-shadow);
+  text-align: center;
+}
+
+.btn:hover {
+  transform: scale(1.008);
+}

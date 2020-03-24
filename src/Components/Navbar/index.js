@@ -13,6 +13,15 @@ class Navbar extends Component {
   };
 
   componentDidMount() {
+    this.checkScreenSize();
+  }
+
+  checkScreenSize() {
+    if (window.innerWidth >= 600) {
+      this.setState({ ...this.state, screen: "screen" });
+    } else {
+      this.setState({ ...this.state, screen: "mobile" });
+    }
     window.addEventListener("resize", () => {
       if (window.innerWidth >= 600) {
         this.setState({ ...this.state, screen: "screen" });
@@ -26,7 +35,10 @@ class Navbar extends Component {
     return (
       <div id="navbar">
         <div id="nav-logo">
-          <img src={process.env.PUBLIC_URL + "./logoblack.png"}></img>
+          <img
+            src={process.env.PUBLIC_URL + "./logoblack.png"}
+            alt="Logo"
+          ></img>
         </div>
         {this.state.screen !== "mobile" ? (
           <div id="nav-list">
@@ -60,7 +72,7 @@ class Navbar extends Component {
         )}
         {this.state.screen === "mobile" ? (
           <div
-            class={
+            className={
               this.state.navOpen
                 ? "nav-list-mobile"
                 : "nav-list-mobile nav-list-mobile-open"

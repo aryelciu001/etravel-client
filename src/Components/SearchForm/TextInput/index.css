@@ -1,0 +1,40 @@
+.text-input {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+}
+.react-datepicker-wrapper {
+  width: 100%;
+}
+.text-input > input,
+.react-datepicker__input-container > input {
+  margin: 10px 0;
+  width: 100%;
+  border: rgb(240, 240, 240) 1px solid;
+  box-sizing: border-box;
+  padding: 10px;
+  border-radius: 5px;
+  height: 2.5rem;
+  font-size: 1rem;
+}
+.text-input > input:focus,
+.react-datepicker__input-container > input:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 208, 255, 0.5);
+}
+.text-input-ac {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  position: absolute;
+  z-index: 10;
+}
+.text-input-ac ul li {
+  list-style: none;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.text-input-ac li {
+  border: rgb(240, 240, 240) 1px solid;
+  cursor: pointer;
+}

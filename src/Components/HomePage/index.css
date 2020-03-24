@@ -1,0 +1,35 @@
+#homepage {
+  padding-top: 50px;
+}
+
+.hp-recommend {
+  width: 100%;
+  height: fit-content;
+  overflow-x: scroll;
+}
+
+.hp-recommend > div {
+  width: 200%;
+}
+
+.hp-recommend::-webkit-scrollbar {
+  height: 7px;
+}
+
+/* Track */
+.hp-recommend::-webkit-scrollbar-track {
+  background: #fcfcfc;
+}
+
+/* Handle */
+.hp-recommend::-webkit-scrollbar-thumb {
+  background: rgb(211, 211, 211);
+  opacity: 1;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+/* Handle on hover */
+.hp-recommend::-webkit-scrollbar-thumb:hover {
+  opacity: 0.6;
+}

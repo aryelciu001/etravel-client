@@ -1,0 +1,36 @@
+.search-form {
+  margin: 30px;
+  width: calc(50% - 20px);
+  max-width: 600px;
+  box-shadow: var(--drop-shadow);
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 30px;
+}
+
+.search-form h1 {
+  margin-bottom: 20px;
+}
+
+.input-box {
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  padding-right: 20px;
+}
+
+.input-box > label {
+  font-size: 1.1rem;
+}
+
+.src {
+  position: relative;
+  width: 100%;
+}
+
+.btn-container {
+  width: 30%;
+  margin: 20px;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
