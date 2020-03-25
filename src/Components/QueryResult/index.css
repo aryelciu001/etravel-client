@@ -1,0 +1,6 @@
+.query-result {
+  width: 100%;
+  height: fit-content;
+  box-sizing: border-box;
+  padding: 20px;
+}
