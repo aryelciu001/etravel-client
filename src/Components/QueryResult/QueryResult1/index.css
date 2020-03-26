@@ -38,3 +38,8 @@
   width: 20%;
   margin: 20px auto;
 }
+
+.info-btn a {
+  text-decoration: none;
+  color: inherit;
+}

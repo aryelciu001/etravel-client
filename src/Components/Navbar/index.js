@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
+import logo from "./logoblack.png";
+
 import "./index.css";
+
+import { Link } from "react-router-dom";
 
 class Navbar extends Component {
   state = {
@@ -35,19 +39,28 @@ class Navbar extends Component {
     return (
       <div id="navbar">
         <div id="nav-logo">
-          <img
-            src={process.env.PUBLIC_URL + "./logoblack.png"}
-            alt="Logo"
-          ></img>
+          <img src={logo} alt="Logo"></img>
         </div>
         {this.state.screen !== "mobile" ? (
           <div id="nav-list">
             <ul>
-              <li>Home</li>
-              <li>Profile</li>
-              <li>History</li>
-              <li>Help</li>
-              <li>Sign Out</li>
+              <li>
+                <Link exact="true" to="/">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="/history">History</Link>
+              </li>
+              <li>
+                <Link to="/help">Help</Link>
+              </li>
+              <li>
+                <Link to="/signout">Sign Out</Link>
+              </li>
             </ul>
           </div>
         ) : (
@@ -79,11 +92,23 @@ class Navbar extends Component {
             }
           >
             <ul>
-              <li>Home</li>
-              <li>Profile</li>
-              <li>History</li>
-              <li>Help</li>
-              <li>Sign Out</li>
+              <li>
+                <Link exact="true" to="/">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+              <li>
+                <Link to="/history">History</Link>
+              </li>
+              <li>
+                <Link to="/help">Help</Link>
+              </li>
+              <li>
+                <Link to="/signout">Sign Out</Link>
+              </li>
             </ul>
           </div>
         ) : (

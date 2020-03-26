@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 import Button from "../../Button";
 
@@ -8,6 +9,9 @@ class QueryResult1 extends Component {
   componentDidMount() {
     console.log(this.props.res.hotel.bg);
   }
+
+  onClick = () => {};
+
   render() {
     const style = {
       backgroundPosition: "center",
@@ -51,7 +55,9 @@ class QueryResult1 extends Component {
           </div>
         </div>
         <div className="info-btn">
-          <Button text="Details"></Button>
+          <Link to={`/queryresult/${this.props.index}`}>
+            <Button text="Details"></Button>
+          </Link>
         </div>
       </div>
     );
