@@ -7,131 +7,128 @@ import QueryResult from "./Components/QueryResult";
 import QueryResultDetail from "./Components/QueryResultDetail";
 import LandingPage from "./Components/LandingPage";
 
-import auth from "./auth";
+//dummy result
+import { result } from "./test";
 
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
+  useHistory,
+  withRouter
 } from "react-router-dom";
 
 class App extends Component {
-  componentDidMount = () => {
-    this.setState({ ...this.state, isLoggedIn: auth.isAuthenticated });
+  state = {
+    queryResult: [],
+    user: null,
+    isAuthenticated: false
   };
 
-  state = {
-    queryResult: [
-      {
-        hotel: {
-          name: "JW Marriot",
-          bg:
-            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-          price: "70"
-        },
-        flight: {
-          logo:
-            "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80",
-          name: "Singapore Airline",
-          price: "70"
-        },
-        itenerary: {
-          logo:
-            "https://images.unsplash.com/photo-1521336575822-6da63fb45455?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-          price: "90",
-          name: "Classic Adventure"
-        }
-      },
-      {
-        hotel: {
-          name: "JW Marriot",
-          bg:
-            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-          price: "70"
-        },
-        flight: {
-          logo:
-            "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80",
-          name: "Singapore Airline",
-          price: "70"
-        },
-        itenerary: {
-          logo:
-            "https://images.unsplash.com/photo-1521336575822-6da63fb45455?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-          price: "90",
-          name: "Classic Adventure"
-        }
-      },
-      {
-        hotel: {
-          name: "JW Marriot",
-          bg:
-            "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-          price: "70"
-        },
-        flight: {
-          logo:
-            "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1353&q=80",
-          name: "Singapore Airline",
-          price: "70"
-        },
-        itenerary: {
-          logo:
-            "https://images.unsplash.com/photo-1521336575822-6da63fb45455?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
-          price: "90",
-          name: "Classic Adventure"
-        }
+  componentDidMount = () => {
+    this.setState({ ...this.state, queryResult: result }, () => {
+      this.authenticate();
+    });
+  };
+
+  authenticate = () => {
+    const axios = require("axios");
+    const url = "http://localhost:5000/profiles/afterLogin";
+    var token;
+    try {
+      token = JSON.parse(localStorage["token"]);
+      if (token.expiry > new Date().now) {
+        localStorage.removeItem("token");
+        this.setState({ ...this.state, user: null, isAuthenticated: true });
+      } else {
+        const headers = {
+          "auth-token": token.value
+        };
+        axios.get(url, { headers }).then(res => {
+          this.setState({
+            ...this.state,
+            user: res.data[0],
+            isAuthenticated: true
+          });
+        });
       }
-    ],
-    isLoggedIn: false
+    } catch (e) {
+      this.setState({ ...this.state, user: null, isAuthenticated: true });
+    }
   };
 
   render() {
     return (
-      <Router>
-        <div className="App">
-          <Switch>
-            {/* not protected */}
-            <Route path="/landing">
-              <LandingPage></LandingPage>
-            </Route>
+      <React.Fragment>
+        {this.state.isAuthenticated ? (
+          <Router>
+            <div className="App">
+              <Switch>
+                {/* not protected */}
+                <Route path="/landing">
+                  <LandingPage login={this.login}></LandingPage>
+                </Route>
 
-            {/* protected */}
-            <Route
-              path="/queryresult/:index"
-              exact
-              results={this.state.queryResult}
-              render={routeProps => {
-                return (
-                  <QueryResultDetail
-                    params={routeProps}
-                    results={this.state.queryResult}
-                  ></QueryResultDetail>
-                );
-              }}
-            ></Route>
+                {/* protected */}
+                <Route
+                  path="/queryresult/:index"
+                  exact
+                  results={this.state.queryResult}
+                  render={routeProps => {
+                    if (this.state.user !== null) {
+                      return (
+                        <QueryResultDetail
+                          params={routeProps}
+                          results={this.state.queryResult}
+                        ></QueryResultDetail>
+                      );
+                    } else {
+                      return <Redirect to="/landing" />;
+                    }
+                  }}
+                ></Route>
 
-            {/* protected */}
-            <Route path="/queryresult" exact>
-              <QueryResult results={this.state.queryResult}></QueryResult>
-            </Route>
+                {/* protected */}
+                <Route
+                  path="/queryresult"
+                  exact
+                  render={routeProps => {
+                    if (this.state.user !== null) {
+                      return (
+                        <QueryResult
+                          results={this.state.queryResult}
+                        ></QueryResult>
+                      );
+                    } else {
+                      return <Redirect to="/landing" />;
+                    }
+                  }}
+                ></Route>
 
-            {/* protected */}
-            <Route
-              path="/"
-              exact
-              render={routeProps => {
-                if (this.state.isLoggedIn) {
-                  return <HomePage></HomePage>;
-                } else {
-                  return <Redirect to="/landing" />;
-                }
-              }}
-            ></Route>
-          </Switch>
-        </div>
-      </Router>
+                {/* protected */}
+                <Route
+                  path="/"
+                  exact
+                  render={routeProps => {
+                    if (this.state.user !== null) {
+                      return <HomePage></HomePage>;
+                    } else {
+                      return <Redirect to="/landing" />;
+                    }
+                  }}
+                ></Route>
+                <Route
+                  path="*"
+                  render={routeProps => {
+                    return "404 not found";
+                  }}
+                ></Route>
+              </Switch>
+            </div>
+          </Router>
+        ) : null}
+      </React.Fragment>
     );
   }
 }
