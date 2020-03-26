@@ -5,10 +5,22 @@ import "./App.css";
 import HomePage from "./Components/HomePage";
 import QueryResult from "./Components/QueryResult";
 import QueryResultDetail from "./Components/QueryResultDetail";
+import LandingPage from "./Components/LandingPage";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import auth from "./auth";
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 
 class App extends Component {
+  componentDidMount = () => {
+    this.setState({ ...this.state, isLoggedIn: auth.isAuthenticated });
+  };
+
   state = {
     queryResult: [
       {
@@ -71,13 +83,21 @@ class App extends Component {
           name: "Classic Adventure"
         }
       }
-    ]
+    ],
+    isLoggedIn: false
   };
+
   render() {
     return (
       <Router>
         <div className="App">
           <Switch>
+            {/* not protected */}
+            <Route path="/landing">
+              <LandingPage></LandingPage>
+            </Route>
+
+            {/* protected */}
             <Route
               path="/queryresult/:index"
               exact
@@ -91,12 +111,24 @@ class App extends Component {
                 );
               }}
             ></Route>
+
+            {/* protected */}
             <Route path="/queryresult" exact>
               <QueryResult results={this.state.queryResult}></QueryResult>
             </Route>
-            <Route path="/" exact>
-              <HomePage></HomePage>
-            </Route>
+
+            {/* protected */}
+            <Route
+              path="/"
+              exact
+              render={routeProps => {
+                if (this.state.isLoggedIn) {
+                  return <HomePage></HomePage>;
+                } else {
+                  return <Redirect to="/landing" />;
+                }
+              }}
+            ></Route>
           </Switch>
         </div>
       </Router>
