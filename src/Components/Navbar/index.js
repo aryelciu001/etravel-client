@@ -35,6 +35,11 @@ class Navbar extends Component {
     });
   }
 
+  signout = () => {
+    localStorage.removeItem("token");
+    window.location.replace("/landing");
+  };
+
   render() {
     return (
       <div id="navbar">
@@ -58,8 +63,8 @@ class Navbar extends Component {
               <li>
                 <Link to="/help">Help</Link>
               </li>
-              <li>
-                <Link to="/signout">Sign Out</Link>
+              <li onClick={this.signout} style={{ cursor: "pointer" }}>
+                Sign Out
               </li>
             </ul>
           </div>
@@ -107,7 +112,9 @@ class Navbar extends Component {
                 <Link to="/help">Help</Link>
               </li>
               <li>
-                <Link to="/signout">Sign Out</Link>
+                <li onClick={this.signout} style={{ cursor: "pointer" }}>
+                  Sign Out
+                </li>
               </li>
             </ul>
           </div>
