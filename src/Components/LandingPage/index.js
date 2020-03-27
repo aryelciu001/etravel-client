@@ -9,6 +9,8 @@ import "./LandingPage.css";
 import LoginPage from "../LoginPage/LoginPage";
 import RegistrationPage from "../RegistrationPage/RegistrationPage";
 
+import logo from "../../Assets/Images/logoblack.png";
+
 class LandingPage extends Component {
   login = () => {
     const axios = require("axios");
@@ -28,13 +30,18 @@ class LandingPage extends Component {
   landing = () => {
     return (
       <div className="landing-page">
-        <div className="login-button">
-          <button onClick={this.login}>Login</button>
-        </div>
-        <div className="signup-button">
-          <Link to="/landing/registration">
-            <button>Sign Up</button>
-          </Link>
+        <img src={logo} className="landing-logo" />
+        <div className="buttons-container">
+          <div className="button-wrapper">
+            <Link to="/landing/login">
+              <button className="login-button">Login</button>
+            </Link>
+          </div>
+          <div className="button-wrapper">
+            <Link to="/landing/registration">
+              <button className="signup-button">Sign Up</button>
+            </Link>
+          </div>
         </div>
       </div>
     );
