@@ -6,6 +6,7 @@ import HomePage from "./Components/HomePage";
 import QueryResult from "./Components/QueryResult";
 import QueryResultDetail from "./Components/QueryResultDetail";
 import LandingPage from "./Components/LandingPage";
+import ProfilingTest from "./Components/ProfilingTest";
 
 //dummy result
 import { result } from "./test";
@@ -118,6 +119,9 @@ class App extends Component {
                     }
                   }}
                 ></Route>
+                <Route path="/profilingtest">
+                  <ProfilingTest></ProfilingTest>
+                </Route>
                 <Route
                   path="*"
                   render={routeProps => {

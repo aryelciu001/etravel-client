@@ -1,0 +1,194 @@
+{
+  "term": "new york",
+  "moresuggestions": 10397,
+  "autoSuggestInstance": null,
+  "trackingID": "e6819c1e-1e50-472b-8da4-f44af01dc108",
+  "misspellingfallback": false,
+  "suggestions": [
+    {
+      "group": "CITY_GROUP",
+      "entities": [
+        {
+          "geoId": "1000000000000002621",
+          "destinationId": "1506246",
+          "landmarkCityDestinationId": null,
+          "type": "CITY",
+          "caption": "<span class='highlighted'>New</span> <span class='highlighted'>York</span>, New York, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.75668,
+          "longitude": -73.98647,
+          "name": "New York"
+        },
+        {
+          "geoId": "1000000000006638061",
+          "destinationId": "10779362",
+          "landmarkCityDestinationId": null,
+          "type": "CITY",
+          "caption": "Westchester, <span class='highlighted'>New</span> <span class='highlighted'>York</span>, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 41.156219,
+          "longitude": -73.754042,
+          "name": "Westchester"
+        },
+        {
+          "geoId": "1000000000000602887",
+          "destinationId": "1489365",
+          "landmarkCityDestinationId": null,
+          "type": "REGION",
+          "caption": "Long Island, <span class='highlighted'>New</span> <span class='highlighted'>York</span>, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.87553,
+          "longitude": -72.856806,
+          "name": "Long Island"
+        },
+        {
+          "geoId": "1000000000006451336",
+          "destinationId": "1912147",
+          "landmarkCityDestinationId": null,
+          "type": "REGION",
+          "caption": "Lower Manhattan, <span class='highlighted'>New</span> <span class='highlighted'>York</span>, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.720157,
+          "longitude": -73.998745,
+          "name": "Lower Manhattan"
+        },
+        {
+          "geoId": "1000000000006644956",
+          "destinationId": "10819060",
+          "landmarkCityDestinationId": null,
+          "type": "NEIGHBORHOOD",
+          "caption": "Central <span class='highlighted'>New</span> <span class='highlighted'>York</span> City, New York, New York, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.759591,
+          "longitude": -73.984912,
+          "name": "Central New York City"
+        },
+        {
+          "geoId": "1000000000006056111",
+          "destinationId": "1638632",
+          "landmarkCityDestinationId": null,
+          "type": "REGION",
+          "caption": "Finger Lakes Region, <span class='highlighted'>New</span> <span class='highlighted'>York</span>, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 42.713029,
+          "longitude": -76.957634,
+          "name": "Finger Lakes Region"
+        }
+      ]
+    },
+    {
+      "group": "LANDMARK_GROUP",
+      "entities": [
+        {
+          "geoId": "1000000000000502103",
+          "destinationId": "1634221",
+          "landmarkCityDestinationId": "1506246",
+          "type": "LANDMARK",
+          "caption": "<span class='highlighted'>New</span> <span class='highlighted'>York</span> University, New York, New York, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.72984,
+          "longitude": -73.99529,
+          "name": "New York University"
+        },
+        {
+          "geoId": "1000000000000502080",
+          "destinationId": "1409835",
+          "landmarkCityDestinationId": "1506246",
+          "type": "LANDMARK",
+          "caption": "Times Square, <span class='highlighted'>New</span> <span class='highlighted'>York</span>, New York, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.75741,
+          "longitude": -73.986183,
+          "name": "Times Square"
+        },
+        {
+          "geoId": "1000000000006441080",
+          "destinationId": "10455544",
+          "landmarkCityDestinationId": "1506246",
+          "type": "LANDMARK",
+          "caption": "<span class='highlighted'>New</span> <span class='highlighted'>York</span> Presbyterian Hospital, New York, New York, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.8391,
+          "longitude": -73.93875,
+          "name": "New York Presbyterian Hospital"
+        }
+      ]
+    },
+    {
+      "group": "TRANSPORT_GROUP",
+      "entities": [
+        {
+          "geoId": "1000000000004933194",
+          "destinationId": "1662393",
+          "landmarkCityDestinationId": null,
+          "type": "AIRPORT",
+          "caption": "John F. Kennedy International Airport (JFK), United States of America (<span class='highlighted'>New</span> <span class='highlighted'>York</span>)",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.644166,
+          "longitude": -73.782548,
+          "name": "John F. Kennedy International Airport (JFK)"
+        },
+        {
+          "geoId": "1000000000006028921",
+          "destinationId": "1662396",
+          "landmarkCityDestinationId": null,
+          "type": "AIRPORT",
+          "caption": "<span class='highlighted'>New</span> <span class='highlighted'>York</span>, NY (JRB-Downtown Manhattan Heliport), United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.701648,
+          "longitude": -74.009287,
+          "name": "New York, NY (JRB-Downtown Manhattan Heliport)"
+        },
+        {
+          "geoId": "1000000000006185968",
+          "destinationId": "1730444",
+          "landmarkCityDestinationId": null,
+          "type": "TRAIN_STATION",
+          "caption": "<span class='highlighted'>New</span> <span class='highlighted'>York</span> Grand Central Terminal Station, New York, New York, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.752162,
+          "longitude": -73.977278,
+          "name": "New York Grand Central Terminal Station"
+        }
+      ]
+    },
+    {
+      "group": "HOTEL_GROUP",
+      "entities": [
+        {
+          "geoId": "1100000000000112922",
+          "destinationId": "112922",
+          "landmarkCityDestinationId": null,
+          "type": "HOTEL",
+          "caption": "<span class='highlighted'>New</span> <span class='highlighted'>York</span> Hilton Midtown, New York, New York, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.76225,
+          "longitude": -73.97874,
+          "name": "New York Hilton Midtown"
+        },
+        {
+          "geoId": "1100000000000115902",
+          "destinationId": "115902",
+          "landmarkCityDestinationId": null,
+          "type": "HOTEL",
+          "caption": "<span class='highlighted'>New</span> <span class='highlighted'>York</span> Marriott Marquis, New York, New York, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.758234,
+          "longitude": -73.985457,
+          "name": "New York Marriott Marquis"
+        },
+        {
+          "geoId": "1100000000000106443",
+          "destinationId": "106443",
+          "landmarkCityDestinationId": null,
+          "type": "HOTEL",
+          "caption": "<span class='highlighted'>New</span> <span class='highlighted'>York</span> LaGuardia Airport Marriott, East Elmhurst, New York, United States of America",
+          "redirectPage": "DEFAULT_PAGE",
+          "latitude": 40.768417,
+          "longitude": -73.867602,
+          "name": "New York LaGuardia Airport Marriott"
+        }
+      ]
+    }
+  ]
+}

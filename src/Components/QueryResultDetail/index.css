@@ -9,7 +9,7 @@
 .details1 {
   width: 100%;
   height: 200px;
-  border: rgb(231, 231, 231) 1px solid;
+  border: var(--options-border);
   padding: 10px;
   box-sizing: border-box;
 }

@@ -34,3 +34,10 @@
   margin-left: 50%;
   transform: translateX(-50%);
 }
+
+.feedback {
+  width: 100%;
+  text-align: center;
+  color: rgb(181, 25, 25);
+  font-size: 0.8em;
+}
