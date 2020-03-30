@@ -9,19 +9,17 @@
 }
 
 .login-form {
-  display: block;
-  margin: 0 auto;
-  padding: 20px;
-  width: 450px;
-  border: 2px solid #dddddd;
-  border-radius: 5px;
+  box-shadow: var(--drop-shadow);
+  padding: 30px;
+  box-sizing: border-box;
 }
 
 form ul {
   list-style-type: none;
 }
 
-input[type=text], input[type=password] {
+input[type="text"],
+input[type="password"] {
   box-sizing: border-box;
   width: 100%;
   padding: 10px;
@@ -31,7 +29,8 @@ input[type=text], input[type=password] {
   font-size: 1.2em;
 }
 
-input[type=text]:focus, input[type=password]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
   outline: none;
   box-shadow: 0 0 3px 2px #2460a7;
   border-color: #ffffff;

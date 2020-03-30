@@ -4,15 +4,12 @@ import "./RegistrationPage.css";
 import LandingPage from "../LandingPage/index";
 import RegistrationForm from "../RegistrationForm/RegistrationForm";
 
-import backButton from "../../Assets/Images/back-button.png"
+import backButton from "../../Assets/Images/back-button.png";
 
 class RegistrationPage extends Component {
   registrationPage = () => {
     return (
-      <div className="registration-page">
-        <Link to="/landing">
-          <img src={backButton} className="back-button" />
-        </Link>
+      <div className="registration-page landing-page">
         <RegistrationForm />
       </div>
     );
@@ -21,7 +18,11 @@ class RegistrationPage extends Component {
   render() {
     return (
       <Router>
-        <Route exact path="/landing/registration" component={this.registrationPage} />
+        <Route
+          exact
+          path="/landing/registration"
+          component={this.registrationPage}
+        />
         <Route exact path="/landing" component={LandingPage} />
       </Router>
     );

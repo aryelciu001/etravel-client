@@ -59,7 +59,10 @@ class ProfilePage extends React.Component {
                   <div className="content-container">
                     <p>Change your name</p>
                     {this.state.curOpen === 1 && (
-                      <NameEditForm currentValue={this.state.profile.name} />
+                      <NameEditForm
+                        currentValue={this.state.profile.name}
+                        profile={this.props.user.profile}
+                      />
                     )}
                   </div>
                 </div>
@@ -74,7 +77,10 @@ class ProfilePage extends React.Component {
                   <div className="content-container">
                     <div>Change your email</div>
                     {this.state.curOpen === 2 && (
-                      <EmailEditForm currentValue={this.state.profile.email} />
+                      <EmailEditForm
+                        currentValue={this.state.profile.email}
+                        profile={this.props.user.profile}
+                      />
                     )}
                   </div>
                 </div>
@@ -90,6 +96,7 @@ class ProfilePage extends React.Component {
                     <div>Change your password</div>
                     {this.state.curOpen === 3 && (
                       <PasswordEditForm
+                        profile={this.props.user.profile}
                         currentValue={this.state.profile.password}
                       />
                     )}
@@ -107,6 +114,7 @@ class ProfilePage extends React.Component {
                     <div>Change your details</div>
                     {this.state.curOpen === 4 && (
                       <DetailsEditForm
+                        profile={this.props.user.profile}
                         currentCountry={this.state.profile.country}
                         currentPhone={this.state.profile.phoneNumber}
                       />

@@ -8,6 +8,7 @@ import {
 import "./LandingPage.css";
 import LoginPage from "../LoginPage/LoginPage";
 import RegistrationPage from "../RegistrationPage/RegistrationPage";
+import Button from "../Button";
 
 import logo from "../../Assets/Images/logoblack.png";
 
@@ -15,16 +16,24 @@ class LandingPage extends Component {
   landing = () => {
     return (
       <div className="landing-page">
-        <img src={logo} className="landing-logo" />
         <div className="buttons-container">
+          <img src={logo} className="landing-logo" />
           <div className="button-wrapper">
             <Link to="/landing/login">
-              <button onClick={this.login} className="login-button">Login</button>
+              <Button
+                onClick={this.login}
+                text="Login"
+                className="login-button"
+              >
+                Login
+              </Button>
             </Link>
           </div>
           <div className="button-wrapper">
             <Link to="/landing/registration">
-              <button className="signup-button">Sign Up</button>
+              <Button className="signup-button" text="Sign Up">
+                Sign Up
+              </Button>
             </Link>
           </div>
         </div>

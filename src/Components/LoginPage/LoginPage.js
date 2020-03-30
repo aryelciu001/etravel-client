@@ -9,10 +9,7 @@ import backButton from "../../Assets/Images/back-button.png";
 class LoginPage extends Component {
   loginPage = () => {
     return (
-      <div className="login-page">
-        <Link to="/landing">
-          <img src={backButton} className="back-button" />
-        </Link>
+      <div className="login-page landing-page">
         <LoginForm />
       </div>
     );
@@ -22,7 +19,6 @@ class LoginPage extends Component {
     return (
       <Router>
         <Route exact path="/landing/login" component={this.loginPage} />
-        <Route exact path="/landing" component={LandingPage} />
       </Router>
     );
   }

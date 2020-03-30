@@ -129,11 +129,12 @@ class App extends Component {
                   path="/profile"
                   render={routeProps => {
                     if (this.state.user !== null) {
-                      return <ProfilePage user={this.state.user}/>
+                      return <ProfilePage user={this.state.user} />;
                     } else {
-                      return <Redirect to="/landing" />
+                      return <Redirect to="/landing" />;
                     }
-                  }}/>
+                  }}
+                />
                 <Route
                   path="*"
                   render={routeProps => {
