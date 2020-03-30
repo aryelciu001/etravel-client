@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./RegistrationForm.css";
+import Button from "../Button";
 
 class RegistrationForm extends Component {
   render() {
     return (
-      <form>
+      <form className="login-form">
         <ul>
           <li>
             <label htmlFor="name">Name</label>
@@ -28,7 +29,7 @@ class RegistrationForm extends Component {
           </li>
         </ul>
         <div className="submit-wrapper">
-          <input type="submit" value="Sign Up" />
+          <Button onClick={this.register} text="Sign Up" />
         </div>
       </form>
     );

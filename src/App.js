@@ -18,6 +18,7 @@ import {
   useHistory,
   withRouter
 } from "react-router-dom";
+import ProfilePage from "./Components/ProfilePage";
 
 class App extends Component {
   state = {
@@ -118,6 +119,15 @@ class App extends Component {
                     }
                   }}
                 ></Route>
+                <Route
+                  path="/profile"
+                  render={routeProps => {
+                    if (this.state.user !== null) {
+                      return <ProfilePage user={this.state.user}/>
+                    } else {
+                      return <Redirect to="/landing" />
+                    }
+                  }}/>
                 <Route
                   path="*"
                   render={routeProps => {

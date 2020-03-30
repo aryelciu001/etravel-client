@@ -1,0 +1,40 @@
+.profile-page-container {
+    margin: 20px auto;
+    justify-content: center;
+    width: 640px;
+    border-bottom: 2px solid #AAAAAA;
+}
+
+.profile-container {
+    position: relative;
+    padding: 25px 20px;
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-top: 2px solid #EBEDF0;
+    cursor: pointer;
+}
+
+.profile-container-inactive:hover {
+    background-color: #F5F6F7;
+}
+
+.profile-container-active {
+    background-color: #F2F2F2;
+}
+
+.profile-container:nth-child(2) {
+    border-top: 2px solid #AAAAAA;
+    margin-top: 20px;
+}
+
+.header-container {
+    float: left;
+    width: 150px;
+}
+
+.content-container {
+    float: right;
+    width: 450px;
+}
