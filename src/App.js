@@ -122,9 +122,21 @@ class App extends Component {
                     }
                   }}
                 ></Route>
-                <Route path="/profilingtest">
-                  <ProfilingTest></ProfilingTest>
-                </Route>
+                <Route
+                  path="/profilingtest"
+                  exact
+                  render={routeProps => {
+                    if (this.state.user !== null) {
+                      return (
+                        <ProfilingTest
+                          curUser={this.state.user}
+                        ></ProfilingTest>
+                      );
+                    } else {
+                      return <Redirect to="/landing" />;
+                    }
+                  }}
+                ></Route>
                 <Route
                   path="/profile"
                   render={routeProps => {
