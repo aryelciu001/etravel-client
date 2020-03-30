@@ -39,7 +39,9 @@ class App extends Component {
     var token;
     try {
       token = JSON.parse(localStorage["token"]);
-      if (token.expiry > new Date().now) {
+      console.log(token.expiry);
+      console.log(new Date().valueOf());
+      if (token.expiry < new Date().valueOf()) {
         localStorage.removeItem("token");
         this.setState({ ...this.state, user: null, isAuthenticated: true });
       } else {
