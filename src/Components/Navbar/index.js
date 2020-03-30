@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import logo from "./logoblack.png";
+import logo from "../../Assets/Images/logoblack.png";
 
 import "./index.css";
 
