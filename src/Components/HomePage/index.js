@@ -5,6 +5,8 @@ import RecommendationBox from "../RecommendationBox";
 import SearchForm from "../SearchForm";
 
 import "./index.css";
+import Button from "../Button";
+import { Redirect } from "react-router-dom";
 
 class HomePage extends Component {
   state = {
@@ -54,6 +56,14 @@ class HomePage extends Component {
             </div>
           </div>
           <SearchForm></SearchForm>
+          <div className="retake-btn">
+            <Button
+              text="Retake Profiling Test"
+              onClick={() => {
+                window.location.replace("/profilingtest");
+              }}
+            ></Button>
+          </div>
         </div>
       </React.Fragment>
     );

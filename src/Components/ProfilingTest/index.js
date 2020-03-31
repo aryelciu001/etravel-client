@@ -83,7 +83,7 @@ class ProfilingTest extends Component {
     var { curIndex, questions, toBeSent, curAnswers } = this.state;
     toBeSent[questions[curIndex].for] = curAnswers;
     const api = process.env.REACT_APP_API_URL;
-    const url = `${api}/profres/addprofre`;
+    const url = `${api}/profres/addprofres`;
     if (curIndex + 1 === question.length) {
       this.setState(
         {

@@ -13,7 +13,12 @@ import NotFoundPage from "./Components/NotFoundPage";
 //dummy result
 import { result } from "./test";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 import ProfilePage from "./Components/ProfilePage";
 
 class App extends Component {
@@ -64,8 +69,13 @@ class App extends Component {
             <div className="App">
               <Switch>
                 {/* not protected */}
+
                 <Route path="/landing">
-                  <LandingPage login={this.login}></LandingPage>
+                  {this.state.user === null ? (
+                    <LandingPage login={this.login}></LandingPage>
+                  ) : (
+                    <Redirect to="/"></Redirect>
+                  )}
                 </Route>
 
                 <ProtectedRoute

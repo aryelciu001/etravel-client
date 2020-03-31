@@ -37,3 +37,20 @@
 .hp-recommend::-webkit-scrollbar-thumb:hover {
   opacity: 0.6;
 }
+
+.retake-btn {
+  position: fixed;
+  width: 200px;
+  bottom: 50px;
+  right: 50px;
+}
+
+.retake-btn > div {
+  background-color: rgb(0, 56, 152);
+  color: white;
+  transition: 0.5s;
+}
+
+.retake-btn > div:hover {
+  background-color: rgb(0, 94, 255);
+}

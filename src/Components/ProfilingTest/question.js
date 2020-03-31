@@ -4,10 +4,10 @@ export const question = [
     question:
       "Please rank according to your preferred kind of vacation plan you want (the topmost option would be the most preferred)",
     answers: [
-      "Nature (Mountains, lakes, rivers)",
+      "Nature (Mountains, Lakes, Rivers)",
       "History (Museums, Temples, Relics)",
       "Shopping (Malls, Shopping Center)",
-      "Culinary (Restaurants, Bars, Food Court)"
+      "Landmarks"
     ]
   },
   {
