@@ -14,7 +14,8 @@ class DetailsEditForm extends Component {
 
   onSave = () => {
     const axios = require("axios");
-    const url = "http://localhost:5000/profiles/updateProfile";
+    const api = process.env.REACT_APP_API_URL;
+    const url = `${api}/profiles/updateProfile`;
     const { phoneNumber, country } = this.state;
     var token = localStorage["token"];
     token = JSON.parse(token);
@@ -55,6 +56,7 @@ class DetailsEditForm extends Component {
               name="country"
               value={this.state.country}
               onChange={this.onChange}
+              autoComplete=""
               onSubmit={e => {
                 e.preventDefault();
               }}
@@ -65,6 +67,7 @@ class DetailsEditForm extends Component {
               name="phoneNumber"
               value={this.state.phoneNumber}
               onChange={this.onChange}
+              autoComplete=""
             />
             <div className="profile-save-button">
               <Button text="Save Changes" onClick={this.onSave} />

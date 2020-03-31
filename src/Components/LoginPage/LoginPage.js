@@ -1,10 +1,7 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import "./LoginPage.css";
-import LandingPage from "../LandingPage/index";
 import LoginForm from "../LoginForm/LoginForm";
-
-import backButton from "../../Assets/Images/back-button.png";
 
 class LoginPage extends Component {
   loginPage = () => {

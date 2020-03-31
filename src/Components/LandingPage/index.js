@@ -17,14 +17,10 @@ class LandingPage extends Component {
     return (
       <div className="landing-page">
         <div className="buttons-container">
-          <img src={logo} className="landing-logo" />
+          <img src={logo} className="landing-logo" alt="ETRAVEL LOGO" />
           <div className="button-wrapper">
             <Link to="/landing/login">
-              <Button
-                onClick={this.login}
-                text="Login"
-                className="login-button"
-              >
+              <Button text="Login" className="login-button">
                 Login
               </Button>
             </Link>

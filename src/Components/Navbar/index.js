@@ -112,9 +112,9 @@ class Navbar extends Component {
                 <Link to="/help">Help</Link>
               </li>
               <li>
-                <li onClick={this.signout} style={{ cursor: "pointer" }}>
+                <span onClick={this.signout} style={{ cursor: "pointer" }}>
                   Sign Out
-                </li>
+                </span>
               </li>
             </ul>
           </div>

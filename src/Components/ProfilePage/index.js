@@ -28,7 +28,8 @@ class ProfilePage extends React.Component {
 
   componentDidMount() {
     const axios = require("axios");
-    const url = "http://localhost:5000/profiles/getprofile";
+    const api = process.env.REACT_APP_API_URL;
+    const url = `${api}/profiles/getprofile`;
     var token = localStorage["token"];
     token = JSON.parse(token);
     const body = { profileId: this.props.user.profile };

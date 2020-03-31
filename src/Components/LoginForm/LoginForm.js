@@ -9,10 +9,10 @@ class LoginForm extends Component {
   };
   login = () => {
     const axios = require("axios");
-    const url = "http://localhost:5000/profiles/login";
+    const api = process.env.REACT_APP_API_URL;
+    const url = `${api}/profiles/login`;
     const { email, password } = this.state;
     axios.post(url, { email, password }).then(token => {
-      console.log(token);
       if (token.data.err) {
         this.setState({
           ...this.state,
@@ -49,6 +49,7 @@ class LoginForm extends Component {
               id="email"
               value={email}
               onChange={this.onChange}
+              autoComplete=""
             />
           </li>
           <li>
@@ -58,6 +59,7 @@ class LoginForm extends Component {
               id="password"
               value={password}
               onChange={this.onChange}
+              autoComplete=""
             />
           </li>
         </ul>

@@ -39,12 +39,14 @@ class ProfilingTest extends Component {
                 {el}
                 <div className="updown">
                   <img
+                    alt="Up Arrow"
                     src={uparrow}
                     onClick={() => {
                       this.uparrow(index);
                     }}
                   />
                   <img
+                    alt="Down Arrow"
                     src={downarrow}
                     onClick={() => {
                       this.downarrow(index);
@@ -79,8 +81,9 @@ class ProfilingTest extends Component {
 
   next = () => {
     var { curIndex, questions, toBeSent, curAnswers } = this.state;
-    console.log(curIndex, question.length);
     toBeSent[questions[curIndex].for] = curAnswers;
+    const api = process.env.REACT_APP_API_URL;
+    const url = `${api}/profres/addprofre`;
     if (curIndex + 1 === question.length) {
       this.setState(
         {
@@ -89,14 +92,11 @@ class ProfilingTest extends Component {
         },
         () => {
           const axios = require("axios");
-          toBeSent.user = this.props.curUser._id;
+          toBeSent.user = this.props.user._id;
           console.log(toBeSent);
-          axios
-            .post("http://localhost:5000/profres/addprofres", toBeSent)
-            .then(res => {
-              console.log(res);
-            });
-          // window.location.replace("/");
+          axios.post(url, toBeSent).then(res => {
+            window.location.replace("/");
+          });
         }
       );
     } else {
@@ -110,11 +110,11 @@ class ProfilingTest extends Component {
   };
 
   prev = () => {
-    const { curIndex, questions } = this.state;
+    const { curIndex } = this.state;
     if (curIndex - 1 >= 0) {
       this.setState({
         ...this.state,
-        curIndex: --this.state.curIndex,
+        curIndex: this.state.curIndex - 1,
         curAnswers: question[this.state.curIndex].answers
       });
     }

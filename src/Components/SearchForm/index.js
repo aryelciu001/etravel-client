@@ -6,7 +6,6 @@ import "react-datepicker/dist/react-datepicker.css";
 
 import TextInput from "./TextInput";
 import Button from "../Button";
-import Axios from "axios";
 
 class SearchForm extends Component {
   state = {
@@ -85,9 +84,10 @@ class SearchForm extends Component {
     const axios = require("axios");
 
     console.log(destination, fromDate, toDate);
-
+    const api = process.env.REACT_APP_API_URL;
+    const url = `${api}/hotelquery`;
     axios
-      .post("http://localhost:5000/hotelquery", {
+      .post(url, {
         destination: destination,
         dateCheckIn: fromDate,
         dateCheckOut: toDate

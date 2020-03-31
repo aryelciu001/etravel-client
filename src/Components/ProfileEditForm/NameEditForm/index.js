@@ -13,7 +13,8 @@ class NameEditForm extends Component {
 
   onSave = () => {
     const axios = require("axios");
-    const url = "http://localhost:5000/profiles/updateProfile";
+    const api = process.env.REACT_APP_API_URL;
+    const url = `${api}/profiles/updateProfile`;
     const { name } = this.state;
     var token = localStorage["token"];
     token = JSON.parse(token);
@@ -42,7 +43,11 @@ class NameEditForm extends Component {
   render() {
     return (
       <div className="form-container">
-        <form>
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+          }}
+        >
           <div className="input-container">
             <p>Name</p>
             <input
@@ -50,9 +55,7 @@ class NameEditForm extends Component {
               value={this.state.name}
               name="name"
               onChange={this.onChange}
-              onSubmit={e => {
-                e.preventDefault();
-              }}
+              autoComplete=""
             />
           </div>
           <div className="profile-save-button">

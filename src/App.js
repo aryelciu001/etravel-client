@@ -7,18 +7,13 @@ import QueryResult from "./Components/QueryResult";
 import QueryResultDetail from "./Components/QueryResultDetail";
 import LandingPage from "./Components/LandingPage";
 import ProfilingTest from "./Components/ProfilingTest";
+import ProtectedRoute from "./ProtectedRoute";
+import NotFoundPage from "./Components/NotFoundPage";
 
 //dummy result
 import { result } from "./test";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-  useHistory,
-  withRouter
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import ProfilePage from "./Components/ProfilePage";
 
 class App extends Component {
@@ -36,12 +31,11 @@ class App extends Component {
 
   authenticate = () => {
     const axios = require("axios");
-    const url = "http://localhost:5000/profiles/afterLogin";
+    const api = process.env.REACT_APP_API_URL;
+    const url = `${api}/profiles/afterLogin`;
     var token;
     try {
       token = JSON.parse(localStorage["token"]);
-      console.log(token.expiry);
-      console.log(new Date().valueOf());
       if (token.expiry < new Date().valueOf()) {
         localStorage.removeItem("token");
         this.setState({ ...this.state, user: null, isAuthenticated: true });
@@ -74,85 +68,49 @@ class App extends Component {
                   <LandingPage login={this.login}></LandingPage>
                 </Route>
 
-                {/* protected */}
-                <Route
-                  path="/queryresult/:index"
-                  exact
-                  results={this.state.queryResult}
-                  render={routeProps => {
-                    if (this.state.user !== null) {
-                      return (
-                        <QueryResultDetail
-                          params={routeProps}
-                          results={this.state.queryResult}
-                        ></QueryResultDetail>
-                      );
-                    } else {
-                      return <Redirect to="/landing" />;
-                    }
-                  }}
-                ></Route>
-
-                {/* protected */}
-                <Route
-                  path="/queryresult"
-                  exact
-                  render={routeProps => {
-                    if (this.state.user !== null) {
-                      return (
-                        <QueryResult
-                          results={this.state.queryResult}
-                        ></QueryResult>
-                      );
-                    } else {
-                      return <Redirect to="/landing" />;
-                    }
-                  }}
-                ></Route>
-
-                {/* protected */}
-                <Route
-                  path="/"
-                  exact
-                  render={routeProps => {
-                    if (this.state.user !== null) {
-                      return <HomePage></HomePage>;
-                    } else {
-                      return <Redirect to="/landing" />;
-                    }
-                  }}
-                ></Route>
-                <Route
+                <ProtectedRoute
                   path="/profilingtest"
-                  exact
-                  render={routeProps => {
-                    if (this.state.user !== null) {
-                      return (
-                        <ProfilingTest
-                          curUser={this.state.user}
-                        ></ProfilingTest>
-                      );
-                    } else {
-                      return <Redirect to="/landing" />;
-                    }
-                  }}
-                ></Route>
-                <Route
+                  exact={true}
+                  results={this.state.queryResult}
+                  user={this.state.user}
+                  component={ProfilingTest}
+                ></ProtectedRoute>
+
+                <ProtectedRoute
                   path="/profile"
-                  render={routeProps => {
-                    if (this.state.user !== null) {
-                      return <ProfilePage user={this.state.user} />;
-                    } else {
-                      return <Redirect to="/landing" />;
-                    }
-                  }}
-                />
-                <Route
+                  exact={true}
+                  user={this.state.user}
+                  component={ProfilePage}
+                ></ProtectedRoute>
+
+                <ProtectedRoute
+                  path="/queryresult/:index"
+                  exact={true}
+                  results={this.state.queryResult}
+                  user={this.state.user}
+                  component={QueryResultDetail}
+                ></ProtectedRoute>
+
+                <ProtectedRoute
+                  path="/queryresult"
+                  exact={true}
+                  results={this.state.queryResult}
+                  user={this.state.user}
+                  component={QueryResult}
+                ></ProtectedRoute>
+
+                <ProtectedRoute
+                  path="/"
+                  exact={true}
+                  user={this.state.user}
+                  component={HomePage}
+                ></ProtectedRoute>
+
+                <ProtectedRoute
                   path="*"
-                  render={routeProps => {
-                    return "404 not found";
-                  }}
-                ></Route>
+                  exact={false}
+                  component={NotFoundPage}
+                ></ProtectedRoute>
               </Switch>
             </div>
           </Router>

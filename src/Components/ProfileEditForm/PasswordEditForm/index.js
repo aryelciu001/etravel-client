@@ -19,7 +19,8 @@ class PasswordEditForm extends Component {
 
   onSave = () => {
     const axios = require("axios");
-    const url = "http://localhost:5000/profiles/updateProfile";
+    const api = process.env.REACT_APP_API_URL;
+    const url = `${api}/profiles/updateProfile`;
     const { p1, p2 } = this.state;
     if (p1 === p2) {
       var token = localStorage["token"];
@@ -56,6 +57,7 @@ class PasswordEditForm extends Component {
               onSubmit={e => {
                 e.preventDefault();
               }}
+              autoComplete=""
               name="p1"
               value={this.state.p1}
               onChange={this.onChange}
@@ -67,6 +69,7 @@ class PasswordEditForm extends Component {
               onSubmit={e => {
                 e.preventDefault();
               }}
+              autoComplete=""
               name="p2"
               value={this.state.p2}
               onChange={this.onChange}
