@@ -14,7 +14,8 @@ class ProfilingTest extends Component {
     curIndex: 0,
     answer: "",
     questions: question,
-    curAnswers: []
+    curAnswers: [],
+    toBeSent: {}
   };
 
   componentDidMount() {
@@ -77,11 +78,45 @@ class ProfilingTest extends Component {
   };
 
   next = () => {
-    const { curIndex, questions } = this.state;
+    var { curIndex, questions, toBeSent, curAnswers } = this.state;
+    console.log(curIndex, question.length);
+    toBeSent[questions[curIndex].for] = curAnswers;
     if (curIndex + 1 === question.length) {
-      window.location.replace("/");
+      this.setState(
+        {
+          ...this.state,
+          toBeSent
+        },
+        () => {
+          const axios = require("axios");
+          toBeSent.user = this.props.curUser._id;
+          console.log(toBeSent);
+          axios
+            .post("http://localhost:5000/profres/addprofres", toBeSent)
+            .then(res => {
+              console.log(res);
+            });
+          // window.location.replace("/");
+        }
+      );
     } else {
-      this.setState({ ...this.state, curIndex: ++this.state.curIndex });
+      this.setState({
+        ...this.state,
+        curIndex: ++curIndex,
+        curAnswers: question[curIndex].answers,
+        toBeSent
+      });
+    }
+  };
+
+  prev = () => {
+    const { curIndex, questions } = this.state;
+    if (curIndex - 1 >= 0) {
+      this.setState({
+        ...this.state,
+        curIndex: --this.state.curIndex,
+        curAnswers: question[this.state.curIndex].answers
+      });
     }
   };
 
@@ -90,15 +125,14 @@ class ProfilingTest extends Component {
       <React.Fragment>
         <div className="pt-container">
           <div className="pt-form">
-            {this.state.questions.map((el, index) => {
-              return (
-                <React.Fragment>
-                  <this.Question text={el.question} />
-                  <this.Answers />
-                </React.Fragment>
-              );
-            })}
+            <React.Fragment>
+              <this.Question
+                text={this.state.questions[this.state.curIndex].question}
+              />
+              <this.Answers />
+            </React.Fragment>
             <div className="pt-btn">
+              <Button onClick={this.prev} text="Back"></Button>
               <Button onClick={this.next} text="Next"></Button>
             </div>
           </div>
