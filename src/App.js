@@ -20,6 +20,7 @@ import {
   withRouter
 } from "react-router-dom";
 import ProfilePage from "./Components/ProfilePage";
+import Help from "./Components/Help";
 
 class App extends Component {
   state = {
@@ -128,6 +129,13 @@ class App extends Component {
                 exact={true}
                 user={this.state.user}
                 component={ProfilePage}
+              ></ProtectedRoute>
+
+              <ProtectedRoute
+                  path="/help"
+                  exact={true}
+                  user={this.state.user}
+                  component={Help}
               ></ProtectedRoute>
 
               <ProtectedRoute
