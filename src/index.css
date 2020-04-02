@@ -1,13 +1,15 @@
 * {
   margin: 0;
   padding: 0;
+  font-family: "Roboto", sans-serif;
 }
 
 :root {
   font-size: 15px;
-  --main-color: rgb(0, 157, 255);
   --drop-shadow: 0px 3px 15px rgba(0, 0, 0, 0.1);
   --options-border: rgb(231, 231, 231) 1px solid;
+  --main-color: #3c91e6;
+  --main-color-text: #edf6ff;
 }
 
 /* color: var(--main-color); */

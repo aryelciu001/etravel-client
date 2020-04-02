@@ -1,5 +1,6 @@
 import React from "react";
+import "./index.css";
 
 export default function(props) {
-  return <div>404 Page not found</div>;
+  return <div className="page404">404 Page Not Found</div>;
 }

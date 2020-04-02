@@ -115,7 +115,7 @@ class ProfilingTest extends Component {
       this.setState({
         ...this.state,
         curIndex: this.state.curIndex - 1,
-        curAnswers: question[this.state.curIndex].answers
+        curAnswers: question[this.state.curIndex - 1].answers
       });
     }
   };

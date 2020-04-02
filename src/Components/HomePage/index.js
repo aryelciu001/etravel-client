@@ -55,7 +55,7 @@ class HomePage extends Component {
               ))}
             </div>
           </div>
-          <SearchForm></SearchForm>
+          <SearchForm query={this.props.query}></SearchForm>
           <div className="retake-btn">
             <Button
               text="Retake Profiling Test"

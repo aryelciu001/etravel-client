@@ -55,47 +55,40 @@ class SearchForm extends Component {
       this.setState({ ...this.state, err: error }, () => {
         return;
       });
-    }
+    } else {
+      var day =
+        String(fromDate.getUTCDate()).length > 1
+          ? String(fromDate.getUTCDate())
+          : "0" + String(fromDate.getUTCDate());
+      var month =
+        String(fromDate.getUTCMonth()).length > 1
+          ? String(fromDate.getUTCMonth() + 1)
+          : "0" + String(fromDate.getUTCMonth() + 1);
+      var year = String(fromDate.getUTCFullYear());
 
-    var day =
-      String(fromDate.getUTCDate()).length > 1
-        ? String(fromDate.getUTCDate())
-        : "0" + String(fromDate.getUTCDate());
-    var month =
-      String(fromDate.getUTCMonth()).length > 1
-        ? String(fromDate.getUTCMonth() + 1)
-        : "0" + String(fromDate.getUTCMonth() + 1);
-    var year = String(fromDate.getUTCFullYear());
+      fromDate = `${year}-${month}-${day}`;
 
-    fromDate = `${year}-${month}-${day}`;
+      day =
+        String(toDate.getUTCDate()).length > 1
+          ? String(toDate.getUTCDate())
+          : "0" + String(toDate.getUTCDate());
+      month =
+        String(toDate.getUTCMonth()).length > 1
+          ? String(toDate.getUTCMonth() + 1)
+          : "0" + String(toDate.getUTCMonth() + 1);
+      year = String(toDate.getUTCFullYear());
 
-    day =
-      String(toDate.getUTCDate()).length > 1
-        ? String(toDate.getUTCDate())
-        : "0" + String(toDate.getUTCDate());
-    month =
-      String(toDate.getUTCMonth()).length > 1
-        ? String(toDate.getUTCMonth() + 1)
-        : "0" + String(toDate.getUTCMonth() + 1);
-    year = String(toDate.getUTCFullYear());
+      toDate = `${year}-${month}-${day}`;
 
-    toDate = `${year}-${month}-${day}`;
+      const axios = require("axios");
 
-    const axios = require("axios");
-
-    console.log(destination, fromDate, toDate);
-    const api = process.env.REACT_APP_API_URL;
-    const url = `${api}/hotelquery`;
-    axios
-      .post(url, {
+      this.props.query({
+        source: origin,
         destination: destination,
-        dateCheckIn: fromDate,
-        dateCheckOut: toDate
-      })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => console.log(err));
+        departureDate: fromDate,
+        returnDate: toDate
+      });
+    }
   };
 
   Feedback = () => {

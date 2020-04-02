@@ -40,17 +40,18 @@
 
 .retake-btn {
   position: fixed;
-  width: 200px;
-  bottom: 50px;
-  right: 50px;
+  width: 150px;
+  bottom: 20px;
+  right: 20px;
 }
 
 .retake-btn > div {
-  background-color: rgb(0, 56, 152);
+  background-color: #293c4f;
   color: white;
   transition: 0.5s;
+  font-size: 0.8rem;
 }
 
 .retake-btn > div:hover {
-  background-color: rgb(0, 94, 255);
+  background-color: #3c91e6;
 }

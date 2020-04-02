@@ -25,18 +25,16 @@ export const question = [
     for: "transit",
     question:
       "Are you okay with flight with transit? Put your answer at topmost selection",
-    answers: [
-      "Yes (Willing to take transit flight)",
-      "No (Prefer non-transit flight)"
-    ]
+    answers: ["Transit", "No Transit"]
   },
   {
     for: "flight",
     question: "Please rank according to your preferred airline class",
-    answers: [
-      "Budget Airline (Low Price with less facility)",
-      "Premium Class Airline (Medium Price)",
-      "World Class Airline (High Price with more facility)"
-    ]
+    answers: ["World-class Airline", "Budget Airline"]
+  },
+  {
+    for: "time",
+    question: "Please rank your preferred flight timing",
+    answers: ["Morning", "Afternoon", "Evening/Night"]
   }
 ];

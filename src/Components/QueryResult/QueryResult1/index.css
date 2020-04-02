@@ -1,6 +1,7 @@
 .qr-1 {
   width: 100%;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
   border-radius: 5px;
   box-shadow: var(--drop-shadow);
   box-sizing: border-box;
@@ -8,11 +9,15 @@
   margin-bottom: 30px;
 }
 
+.qr-1top {
+  display: flex;
+  flex-direction: row;
+}
+
 .qr-11 {
   width: 30%;
   height: 300px;
   margin: 0 1.66%;
-  display: inline-block;
   border-radius: 10px;
   box-shadow: var(--drop-shadow);
 }
@@ -42,4 +47,35 @@
 .info-btn a {
   text-decoration: none;
   color: inherit;
+}
+
+.qr-1flight {
+  display: flex;
+  flex-direction: column;
+}
+.qr-1flightprice {
+  display: flex;
+  flex-direction: row;
+  height: 80%;
+}
+.qr-price {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-1flight-departure,
+.qr-1flight-return {
+  width: 50%;
+}
+
+.qr-1flight-departure > .qr-bg {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 0px;
+}
+.qr-1flight-return > .qr-bg {
+  border-top-right-radius: 10px;
+  border-top-left-radius: 0px;
 }

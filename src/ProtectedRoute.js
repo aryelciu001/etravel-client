@@ -13,6 +13,7 @@ export default function(props) {
               params={routeProps}
               user={props.user}
               results={props.results}
+              query={props.query}
             />
           );
         } else {
